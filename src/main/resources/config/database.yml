@@ -1,0 +1,20 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://${TODO_DB_HOST:localhost}:${TODO_DB_PORT:3306}/${TODO_DB_DATABASE:todo}
+    username: ${TODO_DB_USER:dev}
+    password: ${TODO_DB_PASSWORD:dev}
+
+  jpa:
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        highlight_sql: true
+        use_sql_comments: true
+        show_sql: true
+        dialect: org.hibernate.dialect.MySQLDialect
+      ejb:
+        naming_strategy: org.hibernate.cfg.ImprovedNamingStrategy
+    hibernate:
+      ddl-auto: validate

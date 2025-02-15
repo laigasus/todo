@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: todo
+  config:
+    import:
+      - "optional:file:./.env[.properties]"
+      - "optional:classpath:/config/database.yml"
+      - "optional:classpath:/config/message-source.yml"
+      - "optional:classpath:/config/base.yml"
+      - "optional:classpath:/config/ai.yml"

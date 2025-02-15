@@ -1,0 +1,93 @@
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '3.4.2'
+    id 'io.spring.dependency-management' version '1.1.7'
+    id "com.ly.smart-doc" version '3.0.9'
+}
+
+group = 'api.crusher'
+version = '0.0.1'
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(21)
+    }
+}
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+ext {
+    springAiVersion = "1.0.0-M5"
+}
+
+dependencies {
+    // base
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'org.springframework.boot:spring-boot-starter-data-rest'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-validation'
+    annotationProcessor 'org.projectlombok:lombok'
+    implementation 'org.projectlombok:lombok'
+    developmentOnly 'org.springframework.boot:spring-boot-devtools'
+    runtimeOnly 'com.mysql:mysql-connector-j'
+    annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
+
+    // flyway migration
+    developmentOnly 'org.flywaydb:flyway-core'
+    developmentOnly 'org.flywaydb:flyway-mysql'
+
+    // hateoas
+    implementation 'org.springframework.boot:spring-boot-starter-hateoas'
+    developmentOnly 'org.springframework.data:spring-data-rest-hal-explorer'
+
+    // ai
+    implementation 'org.springframework.ai:spring-ai-ollama-spring-boot-starter'
+
+
+    // test
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'io.rest-assured:rest-assured'
+    testImplementation 'org.springframework.boot:spring-boot-testcontainers'
+    testImplementation 'org.testcontainers:junit-jupiter'
+    testImplementation 'org.testcontainers:mysql'
+    testImplementation 'org.testcontainers:ollama'
+    testImplementation 'com.navercorp.fixturemonkey:fixture-monkey-starter:+'
+    testImplementation 'com.navercorp.fixturemonkey:fixture-monkey-jackson:+'
+    testImplementation 'com.navercorp.fixturemonkey:fixture-monkey-jakarta-validation:+'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+    testRuntimeOnly 'com.h2database:h2'
+
+    implementation 'io.hypersistence:hypersistence-utils-hibernate-63:3+'
+
+    // yaml exception messages
+    implementation 'dev.akkinoc.util:yaml-resource-bundle:2.+'
+
+    implementation 'me.paulschwarz:spring-dotenv:4.+'
+
+    // object mapper
+    annotationProcessor 'org.mapstruct:mapstruct-processor:1.+'
+    implementation 'org.mapstruct:mapstruct:1.+'
+}
+
+dependencyManagement {
+    imports {
+        mavenBom "org.springframework.ai:spring-ai-bom:$springAiVersion"
+    }
+}
+
+test {
+    useJUnitPlatform()
+}
+
+smartdoc {
+    configFile = file("src/main/resources/smart-doc.json")
+    exclude 'org.springframework.boot.*'
+}

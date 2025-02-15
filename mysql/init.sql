@@ -1,0 +1,7 @@
+CREATE USER 'dev'@'%' IDENTIFIED BY 'dev';
+CREATE USER 'test'@'%' IDENTIFIED BY 'test';
+
+GRANT ALL PRIVILEGES ON *.* TO 'dev'@'%';
+GRANT ALL PRIVILEGES ON *.* TO 'test'@'%';
+
+FLUSH PRIVILEGES;

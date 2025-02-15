@@ -1,0 +1,9 @@
+{
+  "outPath": "src/main/resources/static",
+  "serverUrl": "http://localhost:8080",
+  "allInOne": true,
+  "showAuthor": true,
+  "language": "KOREAN",
+  "randomMock": true,
+  "port": "8080"
+}

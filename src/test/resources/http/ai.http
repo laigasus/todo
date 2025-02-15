@@ -1,0 +1,10 @@
+###
+GET http://localhost:8080/api/ai/prompt?question=hello
+
+###
+GET http://localhost:8080/api/ai/task
+Content-Type: application/json
+
+{
+  "prompt": "Add a new task: pass the test. and todo is create application"
+}
