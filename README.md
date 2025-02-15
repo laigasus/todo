@@ -21,9 +21,10 @@
 - 단위, 통합 테스트코드를 작성했습니다.
 
 ## 2. 실행 방법
-1. `docker compose up -d` 명령어로 컨테이너를 실행합니다.
+1. `docker compose up -d` 명령어로 컨테이너를 실행합니다(Docker 설치 필요).
 2. `./gradlew bootRun` 명령어로 애플리케이션을 실행합니다.
 3. `http://localhost:8080` 으로 접속합니다.
+4. `resources/http` 폴더에 있는 http 파일을 이용해 API를 테스트할 수 있습니다. 혹은 애플리케이션 실행 전에 `./gradlew test` 명령어로 테스트를 실행할 수 있습니다.
 
 ## 3. 주요 라이브러리
 ### Test 부문
@@ -47,3 +48,4 @@
 - openapi 형식으로 제공합니다. github page 로 접근할 수 있습니다.
 
 ## 5. 실행 결과 화면
+![sample.png](sample.png)
