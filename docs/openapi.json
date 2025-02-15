@@ -25,7 +25,7 @@
   "paths": {
     "/api/ai/prompt": {
       "get": {
-        "summary": "askToAI",
+        "summary": "/api/ai/prompt",
         "deprecated": false,
         "description": "AI에게 질문을 보내고 응답을 받습니다.",
         "tags": [
@@ -67,7 +67,7 @@
     },
     "/api/ai/task": {
       "get": {
-        "summary": "createTaskToAI",
+        "summary": "/api/ai/task",
         "deprecated": false,
         "description": "제공된 프롬프트를 사용하여 AI로 생성된 Task 를 제시합니다.",
         "tags": [
